@@ -1,1 +1,3 @@
 # MemoryGameWebsite
+
+Mūsų komanda nusprendė sukurti interneto puslapį, kuriame būtų atminties lavinimui skirti žaidimai. Vartotojas turės prie svetainės prisiregistruoti. Planuojama sukurti tris skirtingus žaidimus, kurių rezultatus, pasiektus rekordus ir kitą informaciją vartotojas galėtų peržiūrėti. Taip pat vartotojui bus įmanoma pakeisti žaidimo nustatymus: pasirinkti tam tikrą lygį, pakeisti grafiką. Pirmojo žaidimo idėja – lavinti trumpalaikę atmintį atverčiant dvi vienodas užverstas korteles iš daugybės užverstų. Antrojo žaidimo idėja – lavinti trumpalaikę regimąją atmintį įsiminant korteles ,kurios nuspalvintos  tam tikra spalva.   Trečio žaidimo idėja – tikrini kokio ilgumo skaičių gali ir kiek skirtingų žodžių per trumpą laiką  gali vartotojas įsiminti.
