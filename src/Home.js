@@ -6,7 +6,8 @@ import {
   Link
 } from 'react-router-dom';
 import Game1 from './Game1';
-import Game2 from './Game2';
+/*import Game22 from './Game22';*/
+import Game2 from "./Game2/Game2";
 import Game3 from './Game3';
 import Game1photo from './Game1photo.jpg';
 
