@@ -12,7 +12,7 @@ import Login from './Login';
 
 export default class Header extends Component {
   reload(){
-    window.location.reload();
+    /*window.location.reload();*/
   }
     render(){
   return (
