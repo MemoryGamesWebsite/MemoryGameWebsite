@@ -79,9 +79,7 @@ export default class Game3Start extends Component{
         }
 
     }
-
-    react_yes = () => {
-        
+    react_yes = () => {      
     }
 
     render()

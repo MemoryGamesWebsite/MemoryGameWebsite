@@ -4,13 +4,16 @@ import "./App.css";
 /*import './Page.css';*/
 import About from "./About";
 import Page from "./Page.js";
+import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 
 export default class App extends Component {
   render() {
     return (
-      <div className="App">
-        <Header />
-      </div>
+      <Router>
+        <div className="App">
+          <Header />
+        </div>
+      </Router>
     );
   }
 }

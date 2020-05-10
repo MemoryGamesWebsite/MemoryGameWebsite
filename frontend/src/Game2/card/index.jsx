@@ -15,7 +15,7 @@ export default function Card({
 }) {
   return (
     <div
-      className={`flip-container ${flipped ? "flipped" : ""}`}
+      className={`flip-container ${flipped ? "flipped" : ""}`} //transform 180
       style={{
         width,
         height,

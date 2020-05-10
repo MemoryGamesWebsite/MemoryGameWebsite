@@ -18,6 +18,10 @@ const UserSchema = new Schema({
     type: Date,
     default: Date.now,
   },
+
+  game1: {
+    type: Number,
+  },
 });
 
 module.exports = User = mongoose.model("users", UserSchema);
