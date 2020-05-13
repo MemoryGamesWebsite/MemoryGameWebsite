@@ -71,8 +71,8 @@
 }
 
 .button2:disabled {
-  opacity: 0.4;  
-  cursor: not-allowed;
+  opacity: 0; 
+  cursor: default
 }
 
 .align {/*
@@ -88,4 +88,18 @@
   font-family: Arial, Helvetica, sans-serif;
   font: bold;
   color: black;
+}
+
+.smalltext {
+  font-size: small;
+  font-family: Arial, Helvetica, sans-serif;
+  font: bold;
+  color: black;
+}
+
+.gameover {
+  font-size: xx-large;
+  font-family: Arial, Helvetica, sans-serif;
+  font: bold;
+  color: red;
 }

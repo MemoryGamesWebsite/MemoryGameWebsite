@@ -1,10 +1,14 @@
 import React, { Component } from "react";
 import styles from './mystyle.module.css';
+import { set } from "mongoose";
+const ms = require('pretty-ms')
  
 var randomWords = require('random-words')
 var randomInt = require('random-int')
 let zodziai = []
 let countRandomClicks = 0;
+let time = 5;
+var timer;
 
 
 export default class Game3Start extends Component{
@@ -19,11 +23,22 @@ export default class Game3Start extends Component{
             alert("Teisingai! (Ne)");
         }
         else {
+            clearInterval(timer);
             alert("Neteisingai!");
+            document.getElementById("3").disabled = false;
+            document.getElementById("3").innerHTML = "Žaisti iš naujo";
+            document.getElementById("output").className = styles.gameover;
+            document.getElementById("output").innerHTML = "Žaidimas baigtas - atsakėte neteisingai!";
+            document.getElementById("timeris").innerHTML = "";
+            document.getElementById("tekstas").innerHTML = "";
+            zodziai.forEach(element => {
+                zodziai.pop();                
+            });
+            zodziai.pop();
+            countRandomClicks = 0;
         }
         document.getElementById("1").disabled = true;
         document.getElementById("2").disabled = true;
-        document.getElementById("3").disabled = false;
     }
 
     setup = () => {
@@ -33,8 +48,14 @@ export default class Game3Start extends Component{
     }
 
     random_word = (field, heading) => {
+        if(countRandomClicks == 0) {
+            this.startTimer();
+            document.getElementById("3").disabled = true;
+            document.getElementById(heading).className = styles.smalltext;
+        }        
+
         countRandomClicks++;
-        document.getElementById("3").innerHTML = "Kitas žodis";
+        //document.getElementById("3").innerHTML = "Kitas žodis";
         //isiminti reikia 2 zodziu is eiles (kai %3)
         if (countRandomClicks % 3 === 0) {
             var a = randomInt(2);
@@ -58,7 +79,6 @@ export default class Game3Start extends Component{
             document.getElementById(heading).innerHTML = "Ar šis žodis jau buvo tarp tų kuriuos įsiminėte? (įsiminkite ir šį žodį jei ne)";
             document.getElementById("1").disabled = false;
             document.getElementById("2").disabled = false;
-            document.getElementById("3").disabled = true;
             document.getElementById("1").onclick = () => this.reply_click("1", artaip);
             document.getElementById("2").onclick = () => this.reply_click("2", artaip);
         }
@@ -75,19 +95,37 @@ export default class Game3Start extends Component{
             document.getElementById(heading).innerHTML = "Įsiminkite šį žodį:";
             document.getElementById("1").disabled = true;
             document.getElementById("2").disabled = true;
-            document.getElementById("3").disabled = false;
         }
 
     }
-    react_yes = () => {      
-    }
+
+    startTimer() {
+        time = 5;
+        document.getElementById("timeris").innerHTML = "00:0" + time;
+        timer = setInterval(() => {
+            if (time > 0){
+                time = time - 1;
+                document.getElementById("timeris").innerHTML = "00:0" + time;
+            }
+            else {
+                this.random_word("tekstas", "output");
+                time = 5;
+                document.getElementById("timeris").innerHTML = "00:0" + time;
+            }
+        }, 1000);
+    }   
 
     render()
     { 
-        return(
+        return(            
             <div>
+                <div>
+                    <h4>Jums likęs laikas:</h4>
+                    <h3 id="timeris">00:0{time}</h3>
+
+                </div>
                 <div className={styles.align}>
-                    <p id="output" >Norėdami pradėti žaidimą spauskite "Pradėti".</p> 
+                    <p id="output" className={styles.smalltext}>Norėdami pradėti žaidimą spauskite "Pradėti".</p> 
                     <p id="tekstas" className={styles.text}>  </p>   
                 </div>
                 <div className={styles.align}>
@@ -98,4 +136,6 @@ export default class Game3Start extends Component{
             </div>
         )        
     }
+
+
 }
