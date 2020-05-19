@@ -3,6 +3,11 @@ import Board from "./board";
 import Stopwatch from "./Stopwatch";
 import initializeDeck from "./deck";
 import { STATES } from "mongoose";
+import axios from "axios";
+import jwt_decode from "jwt-decode";
+
+import { result } from "../components/UserFunctions";
+import { decode } from "jsonwebtoken";
 
 export default function Game2() {
   const [cards, setCards] = useState([]);
@@ -15,11 +20,23 @@ export default function Game2() {
   const [test, setTest] = useState();
   const [seconds, setSeconds] = useState(0);
 
+  const [email, setEmail] = useState();
+  const [fullname, setFullname] = useState();
+
   const button = document.querySelector("button");
+
+  const token = localStorage.usertoken;
 
   useEffect(() => {
     resizeBoard();
     setCards(initializeDeck());
+  }, []);
+
+  useEffect(() => {
+    const token = localStorage.usertoken;
+    const decoded = jwt_decode(token);
+    setEmail(decoded.email);
+    setFullname(decoded.full_name);
   }, []);
 
   useEffect(() => {
@@ -34,7 +51,7 @@ export default function Game2() {
   const getminutes = () => {
     return Math.floor(seconds / 60);
   };
-
+  const restart = () => {};
   const timer = () => {
     button.disabled = true;
     setTest(
@@ -46,6 +63,20 @@ export default function Game2() {
   };
   const stoptimer = () => {
     clearInterval(test);
+  };
+
+  const timesubmit = () => {
+    const res = {
+      result: seconds,
+      email: email,
+      full_name: fullname,
+    };
+
+    result(res).then((res) => {
+      if (res) {
+        console.log("testa");
+      }
+    });
   };
 
   const handleClick = (id) => {
@@ -65,7 +96,7 @@ export default function Game2() {
 
           if (count == 7) {
             stoptimer();
-            const laikas = seconds;
+            timesubmit();
             window.alert("Zaidimas baigtas per: " + seconds + "s");
           }
         } else {

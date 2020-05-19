@@ -1,0 +1,20 @@
+{
+  "lightTheme": {
+    "header": {
+      "height": "50px",
+      "background": "#627CA2"
+    },
+    "body": {
+      "bg": "#fff",
+      "color": "#000"
+    },
+    "cell": {
+      "bg": "#BDC2E5",
+      "activeBg": "#006400",
+      "failedBg": "#e74c3c"
+    },
+    "loader": {
+      "bg": "#627CA2"
+    }
+  }
+}

@@ -1,13 +1,27 @@
 const express = require("express");
 const users = express.Router();
+const results = express.Router();
 const cors = require("cors");
 const jwt = require("jsonwebtoken");
 const bcrypt = require("bcrypt");
 
 const User = require("./schema/User");
+const Result = require("./schema/Result");
+results.use(cors());
 users.use(cors());
 
 process.env.SECRET_KEY = "secret";
+
+users.get("/", function (req, res) {
+  User.find({})
+    .then((data) => {
+      console.log("Data: ", data);
+      res.json(data);
+    })
+    .catch((error) => {
+      console.log("error: ", daerrorta);
+    });
+});
 
 users.post("/register", (req, res) => {
   const date = new Date();
@@ -93,4 +107,18 @@ users.get("/profile", (req, res) => {
     });
 });
 
+results.post("/rez", (req, res) => {
+  const rezData = {
+    result: req.body.result,
+  };
+  Result.create(rezData)
+    .then((result) => {
+      res.json({ status: result.result + "Time Registered" });
+    })
+    .catch((err) => {
+      res.send("error: hehe " + err);
+    });
+});
+
 module.exports = users;
+//module.exports = results;

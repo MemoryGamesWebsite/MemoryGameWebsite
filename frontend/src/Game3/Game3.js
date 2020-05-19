@@ -1,17 +1,15 @@
-import React, { Component } from 'react';
-import Game3Start from './Game3Start.js';
-import styles from './mystyle.module.css';
+import React, { Component } from "react";
+import Game3Start from "./Game3Start.js";
+import styles from "./mystyle.module.css";
 
 export default class Game3 extends Component {
-  handleClick(i)
-  {      
-  }    
+  handleClick(i) {}
 
-  render(){
-    return (   
+  render() {
+    return (
       <div className={styles.align}>
-        <h2>Treciasis zaidimas</h2>        
-          <Game3Start/> 
+        <h2>Treciasis zaidimas</h2>
+        <Game3Start />
       </div>
     );
   }

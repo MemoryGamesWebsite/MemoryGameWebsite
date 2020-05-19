@@ -11,6 +11,7 @@ import Home from "./Home";
 import Register from "./Register";
 import Login from "./Login";
 import Profile from "./profile";
+import Leaderboard from "./Leaderboard";
 
 export default class Header extends Component {
   reload() {
@@ -57,6 +58,9 @@ export default class Header extends Component {
             <li>
               <Link to="./About">About</Link>
             </li>
+            <li className="active">
+              <Link to="./Leadearboard">Leadearboard</Link>
+            </li>
             {localStorage.usertoken ? userLink : reglog}
           </ul>
         </div>
@@ -76,6 +80,9 @@ export default class Header extends Component {
             </Route>
             <Route path="/profile">
               <Profile />
+            </Route>
+            <Route path="/Leadearboard">
+              <Leaderboard />
             </Route>
           </Switch>
         </div>

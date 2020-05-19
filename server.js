@@ -12,7 +12,8 @@ app.use(
     extended: false,
   })
 );
-
+app.use(express.json());
+app.use(express.urlencoded({ extended: false }));
 const mongoURI = "mongodb://localhost:27017/UserInfo";
 
 mongoose
@@ -21,9 +22,13 @@ mongoose
   .catch((err) => console.log(err));
 
 var Users = require("./Users");
-
+var Results = require("./Results");
+var Results2 = require("./Results2");
+var Results3 = require("./Results3");
 app.use("/users", Users);
-
+app.use("/results", Results);
+app.use("/results2", Results2);
+app.use("/results3", Results3);
 app.listen(port, function () {
   console.log("Server is running on port: " + port);
 });

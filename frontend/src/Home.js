@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
-import Game1 from "./Game1/Game1";
+import Game1 from "./Game1/App";
 /*import Game22 from './Game22';*/
 import Game2 from "./Game2/Game2";
 import Game3 from "./Game3/Game3";
