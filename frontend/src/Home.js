@@ -17,13 +17,14 @@ export default class Home extends Component {
   render() {
     return (
       <Router>
+        <div className="EmptySpace"></div>
         <div className="Home">
           <ul>
             <div className="GameButtonCard">
-              <img className="photo" src={Game2photo} alt="Game1" />
+              <img className="photo" src={Game2photo} alt="Game1"/>
               <div className="GameButtonContainer">
                 <li>
-                  <Link to="./Game1">Game1</Link>
+                  <Link to="./Game1" className="LinkStyle">Game1</Link>
                 </li>
               </div>
             </div>

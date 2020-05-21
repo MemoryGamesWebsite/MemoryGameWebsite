@@ -37,14 +37,17 @@ class Register extends Component {
       <div className="container">
         <div className="row">
           <div className="FormCenter">
+            <div className="FormTitle">
+              Register
+            </div>
             <form noValidate onSubmit={this.onSubmit}>
-              <div className="FormField">
+              <div className="FormField">                
                 <label className="FormField__Label" htmlFor="name">
                   Full Name{" "}
                 </label>
                 <input
                   type="text"
-                  className="FormField_Input"
+                  className="FormField__Input"
                   placeholder="Enter your full name"
                   name="full_name"
                   value={this.state.full_name}
@@ -57,8 +60,8 @@ class Register extends Component {
                 </label>
                 <input
                   type="password"
-                  className="FormField_Input"
-                  placeholder="Enter your full password"
+                  className="FormField__Input"
+                  placeholder="Enter your password"
                   name="password"
                   value={this.state.password}
                   onChange={this.onChange}
@@ -70,7 +73,7 @@ class Register extends Component {
                 </label>
                 <input
                   type="email"
-                  className="FormField_Input"
+                  className="FormField__Input"
                   placeholder="Enter your full email"
                   name="email"
                   value={this.state.email}
@@ -80,7 +83,8 @@ class Register extends Component {
 
               <div className="FormField">
                 <button className="FormField__Button mr-20">Sign Up </button>
-                <a href="login" className="FormField--Link">
+                <br></br>
+                <a href="login" className="FormField__Link">
                   I'm already member
                 </a>
               </div>

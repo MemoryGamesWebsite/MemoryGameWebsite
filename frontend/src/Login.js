@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 import { login } from "./components/UserFunctions";
 import { withRouter } from "react-router";
+import styles from './webstyle.module.css';
 class Login extends Component {
   constructor() {
     super();
@@ -34,17 +35,20 @@ class Login extends Component {
     });
   }
   render() {
-    return (
-      <Route exact path="/login">
+    return (      
+      <Route exact path="/login">              
         <div className="FormCenter">
-          <form className="FormFields" onSubmit={this.onSubmit}>
+          <div className="FormTitle">
+            User Login
+          </div>
+          <form className="FormField" onSubmit={this.onSubmit}>
             <div className="FormField">
               <label className="FormField__Label" htmlFor="email">
                 Email{" "}
               </label>
               <input
                 type="email"
-                className="FormField_Input"
+                className="FormField__Input"
                 placeholder="Enter your  email"
                 name="email"
                 value={this.state.email}
@@ -58,7 +62,7 @@ class Login extends Component {
               </label>
               <input
                 type="password"
-                className="FormField_Input"
+                className="FormField__Input"
                 placeholder="Enter your  password"
                 name="password"
                 value={this.state.password}
@@ -67,10 +71,11 @@ class Login extends Component {
             </div>
 
             <div className="FormField">
-              <button type="submit" className="FormField__Button mr-20">
+              <button type="submit" className="FormField__Button">
                 Log in{" "}
               </button>
-              <a href="register" className="FormField--Link">
+              <br></br>
+              <a href="register" className="FormField__Link">
                 I'm not registered
               </a>
             </div>

@@ -113,7 +113,7 @@ class Profile extends Component {
       if (user_results.length == counter) {
         return (
           <div>
-            <h4>{(avg / counter).toFixed(2)}</h4>
+            <h4>{(avg / counter).toFixed(2)} seconds</h4>
           </div>
         );
       }
@@ -129,7 +129,7 @@ class Profile extends Component {
       if (user_results2.length == counter) {
         return (
           <div>
-            <h4>{(avg / counter).toFixed(2)}</h4>
+            <h4>level {(avg / counter).toFixed(2)}</h4>
           </div>
         );
       }
@@ -145,7 +145,7 @@ class Profile extends Component {
       if (user_results3.length == counter) {
         return (
           <div>
-            <h4>{(avg / counter).toFixed(2)}</h4>
+            <h4>{(avg / counter).toFixed(2)} words</h4>
           </div>
         );
       }
@@ -155,7 +155,7 @@ class Profile extends Component {
   displayCount = (user_results) => {
     return (
       <div>
-        <h4>{this.state.user_results.length / 3}</h4>
+        <h4>{this.state.user_results.length / 3} times</h4>
       </div>
     );
   };
@@ -172,7 +172,7 @@ class Profile extends Component {
       if (this.state.user_results.length == counter) {
         return (
           <div>
-            <h4>{min}</h4>
+            <h4>{min} seconds</h4>
           </div>
         );
       }
@@ -191,7 +191,7 @@ class Profile extends Component {
       if (this.state.user_results2.length == counter) {
         return (
           <div>
-            <h4>{max}</h4>
+            <h4>level {max}</h4>
           </div>
         );
       }
@@ -210,7 +210,7 @@ class Profile extends Component {
       if (this.state.user_results3.length == counter) {
         return (
           <div>
-            <h4>{max}</h4>
+            <h4>{max} words</h4>
           </div>
         );
       }
@@ -219,14 +219,14 @@ class Profile extends Component {
   displayCount2 = (user_results2) => {
     return (
       <div>
-        <h4>{this.state.user_results2.length / 2}</h4>
+        <h4>{this.state.user_results2.length / 2} times</h4>
       </div>
     );
   };
   displayCount3 = (user_results3) => {
     return (
       <div>
-        <h4>{this.state.user_results3.length}</h4>
+        <h4>{this.state.user_results3.length} times</h4>
       </div>
     );
   };
@@ -234,93 +234,94 @@ class Profile extends Component {
   render() {
     return (
       <div className="jumbotron bg-white ">
-        <div className="col-sm-88 text-dark">
-          <h1 className="text-center">PROFILE</h1>
-        </div>
-        <table className="table col-md-6 mx-auto">
+        <div className="ProfileTitle">
+          Account Information
+        </div> 
+
+        <table className="ProfileID">
           <tbody>
             <tr>
-              <td>Full Name</td>
+              <td className="ProfileTableAlign">Full Name:</td>
               <td>{this.state.full_name}</td>
             </tr>
             <tr>
-              <td>Email</td>
+              <td className="ProfileTableAlign">Email:</td>
               <td>{this.state.email}</td>
             </tr>
           </tbody>
         </table>
-        <div className="col-sm-88 text-dark">
-          <h1 className="text-center">GAME 1 STATS</h1>
-        </div>
-
-        <table className="table col-md-6 mx-auto">
-          <tbody>
-            <tr>
-              <td>{this.displayResults(this.state.results)}</td>
-            </tr>
-            <tr>
-              <td>Average Time</td>
-              <td>{this.displayAVG(this.state.user_results)}</td>
-            </tr>
-            <tr>
-              <td>Best Time</td>
-              <td>{this.displayMIN(this.state.user_results)}</td>
-            </tr>
-            <tr>
-              <td>Times Played</td>
-              <td>{this.displayCount(this.state.user_results)}</td>
-            </tr>
-          </tbody>
-        </table>
-
-        <div className="col-sm-88 text-dark">
-          <h1 className="text-center">GAME 2 STATS</h1>
-        </div>
-
-        <table className="table col-md-6 mx-auto">
-          <tbody>
-            <tr>
-              <td>{this.displayResults2(this.state.results2)}</td>
-            </tr>
-            <tr>
-              <td>Average Level</td>
-              <td>{this.displayAVG2(this.state.user_results2)}</td>
-            </tr>
-
-            <tr>
-              <td>Highest Level</td>
-              <td>{this.displayMAX(this.state.user_results2)}</td>
-            </tr>
-            <tr>
-              <td>Times Played</td>
-              <td>{this.displayCount2(this.state.user_results2)}</td>
-            </tr>
-          </tbody>
-        </table>
-
-        <div className="col-sm-88 text-dark">
-          <h1 className="text-center">GAME 3 STATS</h1>
-        </div>
-
-        <table className="table col-md-6 mx-auto">
-          <tbody>
-            <tr>
-              <td>{this.displayResults3(this.state.results3)}</td>
-            </tr>
-            <tr>
-              <td>Average score </td>
-              <td>{this.displayAVG3(this.state.user_results3)}</td>
-            </tr>
-            <tr>
-              <td>Highest score</td>
-              <td>{this.displayMAX3(this.state.user_results3)}</td>
-            </tr>
-            <tr>
-              <td>Times Played</td>
-              <td>{this.displayCount3(this.state.user_results2)}</td>
-            </tr>
-          </tbody>
-        </table>
+        <table className="ProfileTable">
+          <tr>
+            <td className="ProfileStatsTitle">GAME 1 STATS</td>
+            <td className="ProfileStatsTitle">GAME 2 STATS</td>
+            <td className="ProfileStatsTitle">GAME 3 STATS</td>
+          </tr>
+          <tr>
+            <td className="ProfileTableLine">
+              <table className="ProfileStats">
+                <tbody >
+                  <tr>
+                    <td>{this.displayResults(this.state.results)}</td>
+                  </tr>
+                  <tr>
+                    <td className="ProfileTableAlign">Average Time:</td>
+                    <td>{this.displayAVG(this.state.user_results)}</td>
+                  </tr>
+                  <tr>
+                    <td className="ProfileTableAlign">Best Time:</td>
+                    <td>{this.displayMIN(this.state.user_results)}</td>
+                  </tr>
+                  <tr>
+                    <td className="ProfileTableAlign">Times Played:</td>
+                    <td>{this.displayCount(this.state.user_results)}</td>
+                  </tr>
+                </tbody>
+              </table>
+            </td>
+            <td className="ProfileTableLine">
+              <table className="ProfileStats">
+                <tbody>
+                  <tr>
+                    <td>{this.displayResults2(this.state.results2)}</td>
+                  </tr>
+                  <tr>
+                    <td className="ProfileTableAlign">Average Level:</td>
+                    <td>{this.displayAVG2(this.state.user_results2)}</td>
+                  </tr>
+                  <tr>
+                    <td className="ProfileTableAlign">Highest Level:</td>
+                    <td>{this.displayMAX(this.state.user_results2)}</td>
+                  </tr>
+                  <tr>
+                    <td className="ProfileTableAlign">Times Played:</td>
+                    <td>{this.displayCount2(this.state.user_results2)}</td>
+                  </tr>
+                </tbody>
+              </table>
+            </td>
+            <td className="ProfileTableLine">
+              <table className="ProfileStats">
+                <tbody>
+                  <tr>
+                    <td>{this.displayResults3(this.state.results3)}</td>
+                  </tr>
+                  <tr>
+                    <td className="ProfileTableAlign">Average words:</td>
+                    <td>{this.displayAVG3(this.state.user_results3)}</td>
+                  </tr>
+                  <tr>
+                    <td className="ProfileTableAlign">Most words:</td>
+                    <td>{this.displayMAX3(this.state.user_results3)}</td>
+                  </tr>
+                  <tr>
+                    <td className="ProfileTableAlign">Times Played:</td>
+                    <td>{this.displayCount3(this.state.user_results2)}</td>
+                  </tr>
+                </tbody>
+              </table>
+            </td>
+          </tr>
+        </table>        
       </div>
     );
   }

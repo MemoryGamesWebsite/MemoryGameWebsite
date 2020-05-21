@@ -63,11 +63,11 @@ class Leaderboard extends Component {
             <table>
               <tbody>
                 <tr>
-                  <td>
+                  <td className="LeaderUser">
                     <h3>{result.full_name}</h3>
                   </td>
-                  <td>
-                    <h3>{result.result}</h3>
+                  <td className="LeaderUser">
+                    <h3>{result.result} seconds</h3>
                   </td>
                 </tr>
               </tbody>
@@ -88,11 +88,11 @@ class Leaderboard extends Component {
             <table>
               <tbody>
                 <tr>
-                  <td>
+                  <td className="LeaderUser"> 
                     <h3>{result2.full_name}</h3>
                   </td>
-                  <td>
-                    <h3>{result2.level}</h3>
+                  <td className="LeaderUser">
+                    <h3>level {result2.level}</h3>
                   </td>
                 </tr>
               </tbody>
@@ -113,11 +113,11 @@ class Leaderboard extends Component {
             <table>
               <tbody>
                 <tr>
-                  <td>
+                  <td className="LeaderUser">
                     <h3>{result3.full_name}</h3>
                   </td>
-                  <td>
-                    <h3>{result3.result}</h3>
+                  <td className="LeaderUser">
+                    <h3>{result3.result} words</h3>
                   </td>
                 </tr>
               </tbody>
@@ -130,53 +130,36 @@ class Leaderboard extends Component {
   render() {
     return (
       <div className="jumbotron bg-white ">
-        <div className="col-sm-88 text-dark">
-          <h1 className="text-center">Game 1 Leaderboard</h1>
-        </div>
+        <div className="ProfileTitle">
+          Player Leaderboard
+        </div> 
 
-        <table className="table col-md-6 mx-auto">
-          <tbody>
-            <tr>
-              <td>User</td>
-              <td>Result</td>
-            </tr>
-            <tr>
-              <td>{this.displayResults(this.state.results)}</td>
-            </tr>
-          </tbody>
+        <table className="ProfileTable">
+          <tr>
+            <td className="ProfileStatsTitle">Game 1 Leaderboard</td>
+            <td className="ProfileStatsTitle">Game 2 Leaderboard</td>
+            <td className="ProfileStatsTitle">Game 3 Leaderboard</td>
+          </tr>
         </table>
-
-        <div className="col-sm-88 text-dark">
-          <h1 className="text-center">Game 2 Leaderboard</h1>
+        <div className="EmptySpace">
         </div>
-
-        <table className="table col-md-6 mx-auto">
-          <tbody>
-            <tr>
-              <td>User</td>
-              <td>Result</td>
-            </tr>
-            <tr>
-              <td>{this.displayResults2(this.state.results2)}</td>
-            </tr>
-          </tbody>
-        </table>
-
-        <div className="col-sm-88 text-dark">
-          <h1 className="text-center">Game 3 Leaderboard</h1>
-        </div>
-
-        <table className="table col-md-6 mx-auto">
-          <tbody>
-            <tr>
-              <td>User</td>
-              <td>Result</td>
-            </tr>
-            <tr>
-              <td>{this.displayResults3(this.state.results3)}</td>
-            </tr>
-          </tbody>
-        </table>
+        <table className="ProfileTable">
+          <tr>
+            <td className="LeaderUser">User</td>
+            <td className="LeaderUser">Result</td>
+            <td className="LeaderUser">User</td>
+            <td className="LeaderUser">Result</td>
+            <td className="LeaderUser">User</td>
+            <td className="LeaderUser">Result</td>
+          </tr>
+        </table>  
+        <table className="ProfileTable">
+          <tr>
+            <td className="LeaderUser1">{this.displayResults(this.state.results)}</td>
+            <td className="LeaderUser1">{this.displayResults2(this.state.results2)}</td>
+            <td className="LeaderUser1">{this.displayResults3(this.state.results3)}</td>
+          </tr>          
+        </table>          
       </div>
     );
   }
