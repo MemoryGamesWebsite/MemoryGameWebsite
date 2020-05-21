@@ -11,10 +11,8 @@ export default class Game3 extends Component {
     
     return (  
       <div className={styles.align}>
-        <h1>Žodžių įsiminimo žaidimas</h1>  
-        <h3 className={styles.h3}>Šio žaidimo tikslas - įsiminti kuo daugiau iš eilės einančių žodžių.</h3>
-        <h3 className={styles.h3}>Kiekvienam žodžiui įsiminti skiriamos 5 sekundės, o po dviejų įsimintų žodžių</h3>
-        <h3 className={styles.h3}>reikia atsakyti ar rodomas žodis jau buvo ar ne.</h3>      
+        <h1>Word Memorizing Game</h1>  
+        <h3 className={styles.h3}>The purpose of this game is to memorize as much words as possible.</h3>    
           <Game3Start/> 
       </div>
     );
