@@ -106,7 +106,7 @@ export default function Game3Start(){
         document.getElementById("output").className = styles.gameover;
         document.getElementById("output").innerHTML = "Game over - " + priezastis;
         document.getElementById("timerPathRemaining").innerHTML = "";
-        document.getElementById("tekstas").innerHTML = "";
+        document.getElementById("tekstas").innerHTML = "Teisingai įsiminėte " + isimintiZodziai + " žodžius(-ių).";
         zodziai.forEach(element => {
             zodziai.pop();                
         });
@@ -118,6 +118,7 @@ export default function Game3Start(){
     }
 
     const random_word = (field, heading) => {
+        console.log(countRandomClicks);
         if(countRandomClicks == 0) {
             startTimer();
             document.getElementById("3").disabled = true;
@@ -173,12 +174,24 @@ export default function Game3Start(){
     const startTimer = () => {
         document.getElementById("timerLabel").innerHTML = formatTimeLeft(timeLeft);
         timer = setInterval(() => {
+            if(!document.getElementById("timerLabel")){
+                clearInterval(timer);
+                timeLeft = timeLimit;
+                timePassed = 0;
+                zodziai.forEach(element => {
+                    zodziai.pop();                
+                });
+                zodziai.pop();
+                countRandomClicks = 0;
+
+                return 0;
+            }
             if (timeLeft > 0){
                 timePassed = timePassed += 1;
-                timeLeft = timeLimit - timePassed;
+                timeLeft = timeLimit - timePassed;                
                 document.getElementById("timerLabel").innerHTML = formatTimeLeft(timeLeft);
                 setCircleDasharray();
-                setRemainingPathColor(timeLeft);
+                setRemainingPathColor(timeLeft);                
             }
             else if (countRandomClicks % 3 === 0){
                 setup_end("time is up!");
