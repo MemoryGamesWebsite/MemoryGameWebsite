@@ -56,7 +56,7 @@ class Leaderboard extends Component {
   displayResults = (results) => {
     let counter = 0;
     return results.map((result) => {
-      if (counter < 10) {
+      if (counter < 5) {
         counter++;
         return (
           <div>
@@ -81,7 +81,7 @@ class Leaderboard extends Component {
   displayResults2 = (results2) => {
     let counter = 0;
     return results2.map((result2) => {
-      if (counter < 10) {
+      if (counter < 5) {
         counter++;
         return (
           <div>
@@ -106,7 +106,7 @@ class Leaderboard extends Component {
   displayResults3 = (results3) => {
     let counter = 0;
     return results3.map((result3) => {
-      if (counter < 10) {
+      if (counter < 5) {
         counter++;
         return (
           <div>
@@ -129,38 +129,37 @@ class Leaderboard extends Component {
   };
   render() {
     return (
-      <div className="jumbotron bg-white ">
-        <div className="ProfileTitle">
-          Player Leaderboard
-        </div> 
-
-        <table className="ProfileTable">
-          <tr>
-            <td className="ProfileStatsTitle">Game 1 Leaderboard</td>
-            <td className="ProfileStatsTitle">Game 2 Leaderboard</td>
-            <td className="ProfileStatsTitle">Game 3 Leaderboard</td>
-          </tr>
-        </table>
-        <div className="EmptySpace">
+        <div className="jumbotron bg-white ">
+          <div className="ProfileTitle">
+            Player Leaderboard
         </div>
-        <table className="ProfileTable">
-          <tr>
-            <td className="LeaderUser">User</td>
-            <td className="LeaderUser">Result</td>
-            <td className="LeaderUser">User</td>
-            <td className="LeaderUser">Result</td>
-            <td className="LeaderUser">User</td>
-            <td className="LeaderUser">Result</td>
-          </tr>
-        </table>  
-        <table className="ProfileTable">
-          <tr>
-            <td className="LeaderUser1">{this.displayResults(this.state.results)}</td>
-            <td className="LeaderUser1">{this.displayResults2(this.state.results2)}</td>
-            <td className="LeaderUser1">{this.displayResults3(this.state.results3)}</td>
-          </tr>          
-        </table>          
-      </div>
+
+          <table className="ProfileTable">
+            <tr>
+              <td className="ProfileStatsTitle">Game 1 Leaderboard</td>
+              <td className="ProfileStatsTitle">Game 2 Leaderboard</td>
+              <td className="ProfileStatsTitle">Game 3 Leaderboard</td>
+            </tr>
+          </table>
+
+          <table className="ProfileTable">
+            <tr>
+              <td className="LeaderUser">User</td>
+              <td className="LeaderUser">Result</td>
+              <td className="LeaderUser">User</td>
+              <td className="LeaderUser">Result</td>
+              <td className="LeaderUser">User</td>
+              <td className="LeaderUser">Result</td>
+            </tr>
+          </table>
+          <table className="ProfileTable">
+            <tr>
+              <td className="LeaderUser1">{this.displayResults(this.state.results)}</td>
+              <td className="LeaderUser1">{this.displayResults2(this.state.results2)}</td>
+              <td className="LeaderUser1">{this.displayResults3(this.state.results3)}</td>
+            </tr>
+          </table>
+        </div>
     );
   }
 }

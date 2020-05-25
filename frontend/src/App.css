@@ -139,6 +139,14 @@
   border-radius: 10px;
 }
 
+.Background {
+  background: #4caf50;
+}
+
+.Back {
+  background-color: #66dac7;
+}
+
 .divinline {
   display: inline;
 }
@@ -420,7 +428,7 @@ button:hover {
 
 .ProfileTitle{
   text-align: center;
-  font-size: 40pt;
+  font-size: 56pt;
   font-family: Alegreya;
   font: bold;
   color: #707c8b;
@@ -448,14 +456,16 @@ button:hover {
 }
 
 .ProfileStatsTitle{
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  background-color: #4CAF50;
   text-align: center;
   font-size: 26pt;
   font-family: Alegreya;
   font: bold;
-  color: #707c8b;
+  color: white;
   font-weight: 300;
   margin-top: 10px;
-  margin-bottom: 10px;
+  
   width: 500px;
 }
 
@@ -481,11 +491,13 @@ button:hover {
 .ProfileTable{
   margin-left:auto;
   margin-right:auto;
+  background-color: #C5E5C5;
 }
 
 .LeaderUser{
   text-align: center;
-  width: 250px;
+  vertical-align: bottom;
+  width: 249px;
   font-size: 18pt;
   font-family: Alegreya;
   font: bold;
@@ -508,7 +520,37 @@ button:hover {
 }
 
 .EmptySpace{
-  margin-bottom: 20px;
+  margin-bottom: 20px;  
+}
+
+.AboutWhole{
+  margin-top: 40px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.AboutTitle {
+  text-align: center;
+  font-size: 56pt;
+  font-family: Alegreya;
+  font: bold;
+  color: #707c8b;
+  font-weight: 300;
+  margin-bottom: 30px;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+.AboutMain {
+  background-color: #C5E5C5;
+  font-size: x-large;
+  font-family: Alegreya;
+  font: bold;
+  color: black;
+  margin-top: 0px;
+  margin-bottom: 0px;
+  line-height: 1.5;
+  text-align: center;
 }
 
 /* Add some padding inside the card container */
