@@ -8,7 +8,9 @@ export const register = (newUser) => {
       email: newUser.email,
     })
     .then((response) => {
-      console.log("Registered");
+      if (response.data == "z") {
+        window.alert("Email jau egzistuoja");
+      }
     });
 };
 
@@ -19,8 +21,12 @@ export const login = (user) => {
       password: user.password,
     })
     .then((response) => {
-      localStorage.setItem("usertoken", response.data);
-      return response.data;
+      if (response.data == "z") {
+        window.alert("Neteisingas slaptazodis ar email");
+      } else {
+        localStorage.setItem("usertoken", response.data);
+        return response.data;
+      }
     })
     .catch((err) => {
       console.log(err);
@@ -30,7 +36,7 @@ export const login = (user) => {
 export const getProfile = (user) => {
   return axios
     .get("users/profile", {
-      //headers: { Authorization: ` ${this.getToken()}` },
+      // headers: { Authorization: ` ${this.getToken()}` },
     })
     .then((response) => {
       console.log(response);
