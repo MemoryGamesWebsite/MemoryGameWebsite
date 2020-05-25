@@ -48,7 +48,10 @@ users.post("/register", (req, res) => {
             });
         });
       } else {
-        res.json({ error: "User already exists" });
+        // res.json({ error: "User already exists" });
+
+        let kazkas = "z";
+        res.send(kazkas);
       }
     })
     .catch((err) => {
@@ -75,10 +78,12 @@ users.post("/login", (req, res) => {
           res.send(token);
         } else {
           // Passwords don't match
-          res.json({ error: "User does not exist" });
+          let kazkas = "z";
+          res.send(kazkas);
         }
       } else {
-        res.json({ error: "User does not exist" });
+        let kazkas = "z";
+        res.send(kazkas);
       }
     })
     .catch((err) => {
